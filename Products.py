@@ -3,7 +3,7 @@ myProductlist = []
 i = 1
 nameall = []
 priceall = []
-kolprudall = []
+kolprodall = []
 adall = []
 while i < kol + 1:
     product = {}
@@ -16,15 +16,18 @@ while i < kol + 1:
     product['цена'] = price
     priceall.append(price)
 
-    kolprud = int(input('Введите количаство продукта: '))
-    product['колличество'] = kolprud
-    kolprudall.append(kolprud)
+    kolprod = int(input('Введите количаство продукта: '))
+    product['колличество'] = kolprod
+    kolprodall.append(kolprod)
 
     ad = input('Введите еденицу измерения: ')
     product['ед'] = ad
     if i > 1:
-        if ad != adall[0]:
-            adall.append(ad)
+        for i in range(len(adall)):
+            if ad == adall[i]:
+                break
+            if i == len(adall) - 1:
+                adall.append(ad)
     else:
         adall.append(ad)
 
